@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Client;
+use Illuminate\Http\Request;
+
+class ClientController extends Controller
+{
+    public function index()
+    {
+        return view('client_form');
+    }
+    public function create(Request $request)
+    {
+        $client = Client::create($request->all());
+        $client->save();
+        return redirect('home');
+    }
+}
