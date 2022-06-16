@@ -34,20 +34,11 @@
                                     @enderror
                             </div>
 
-                            <label for="invoice_no" class="col-md-2 col-form-label">{{ __('INV no') }}</label>
-
-                            <div class="col-md-4">
-                                <input id="invoice_no" type="text" class="form-control @error('invoice_no') is-invalid @enderror" name="invoice_no" value="INV/2022/06/1" required>
-
-                                @error('invoice_no')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            
                         </div>
                         <!-- CHANGE THIS LATER!! -->
                         <input type="hidden" name="total_amount" value="0"> 
+                        <input type="hidden" name="invoice_no" value="0"> 
 
 
                         <div class="form-group row">
