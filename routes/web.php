@@ -24,7 +24,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/client', 'ClientController@index')->name('client');
-Route::post('/client/add', 'ClientController@create');
+Route::post('/client', 'ClientController@create');
 
 Route::get('/invoice', 'InvoiceController@index')->name('invoice');
-Route::post('/invoice/add', 'InvoiceController@create');
+Route::post('/invoice', 'InvoiceController@create');
+Route::get('/invoice/view', 'InvoiceController@show')->name('view_invoice');

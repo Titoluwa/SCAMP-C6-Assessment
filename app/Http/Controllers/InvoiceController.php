@@ -15,11 +15,15 @@ class InvoiceController extends Controller
     }
     public function create(Request $request)
     {
-
         $invoice = Invoice::create($request->all());
         $invoice->total_amount = $request->product_price * $request->product_quantity;
         
         $invoice->save();
-        return view('home');
+        return redirect('home');
+    }
+    public function show()
+    {
+        $invoices = Invoice::all();
+        return view('invoice_view', compact('invoices'));
     }
 }

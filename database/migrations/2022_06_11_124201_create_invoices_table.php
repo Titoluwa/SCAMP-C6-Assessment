@@ -23,6 +23,7 @@ class CreateInvoicesTable extends Migration
             $table->integer('product_price');
             $table->integer('product_quantity');
             $table->integer('total_amount');
+            $table->integer('status')->default(1);
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="/invoice/add">
+                    <form method="POST" action="/invoice">
                         @csrf
-
+                        
                         <div class="form-group row">
                             <label for="client_id" class="col-md-2 col-form-label">{{ __('Client Name') }}</label>
 
