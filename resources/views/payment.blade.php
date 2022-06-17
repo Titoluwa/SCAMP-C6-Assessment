@@ -9,7 +9,7 @@
                 <div class="card-header clearfix">
                     <b class="float-left">{{ __('All Payments') }}</b>
                     <div class="float-right">
-                        <!-- <a href="/invoice" class="btn btn-sm btn-primary px-3">Add Invoice</a> -->
+                        <a href="/invoice/view" class="btn btn-sm btn-primary px-3">View All Invoice</a>
                         <a href="/home" class="btn btn-sm btn-secondary px-3">Back</a>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                                         <td>{{$payment->invoice->product_name}} </td>
                                         <td>{{$payment->invoice->due_date}}</td>
                                         <td>{{$payment->amount_paid}}</td>
-                                        <td>{{$payment->created_at}}</td>
+                                        <td class="text-primary">{{$payment->created_at->format('Y-m-d')}}</td>
                                         @if($payment->self_paid == 1)
                                             <td>{{$payment->invoice->client->name}}</td>
                                         @else

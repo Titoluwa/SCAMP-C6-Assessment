@@ -9,6 +9,7 @@
                 <div class="card-header clearfix">
                     <b class="float-left">{{ __('All Invoices') }}</b>
                     <div class="float-right">
+                        <a href="/payment" class="btn btn-sm btn-success px-3">View Payments</a>
                         <a href="/invoice" class="btn btn-sm btn-primary px-3">Add Invoice</a>
                         <a href="/home" class="btn btn-sm btn-secondary px-3">Back</a>
                     </div>
@@ -38,9 +39,16 @@
                                         <td>{{$invoice->due_date}}</td>
                                         @if($invoice->status == 1)
                                             <td class="text-danger">Pending</td>
-                                            <td>
-                                                <a href="/payment" class="btn btn-sm btn-warning">Make Payment</a>
-                                                <a href="/send_invoice" class="btn btn-sm btn-primary">Send Invoice</a>
+                                            <td class="d-flex inline">
+                                               <div class="pr-2"> <a href="/send_invoice" class="btn btn-sm btn-primary">Send Invoice</a></div>
+                                                <form action="/payment" method="POST">
+                                                    @csrf
+                                                    <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                                    <input type="hidden" name="invoice_id" value="{{$invoice->id}}">
+                                                    <input type="hidden" name="amount_paid" value="{{$invoice->total_amount}}">
+                                                    <button type="submit" class="btn btn-sm btn-warning">Pay</button>
+                                                </form>
+                                                
                                             </td>
                                         @else
                                             <td class="text-success">Paid</td>

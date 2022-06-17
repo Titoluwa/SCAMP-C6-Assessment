@@ -30,3 +30,5 @@ Route::post('/invoice', 'InvoiceController@create');
 Route::get('/invoice/view', 'InvoiceController@show')->name('view_invoice');
 
 Route::get('/payment','PaymentController@index');
+Route::get('/pay/{id}','PaymentController@pay');
+Route::post('/payment', 'PaymentController@store');

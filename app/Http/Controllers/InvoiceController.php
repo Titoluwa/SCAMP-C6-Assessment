@@ -28,11 +28,11 @@ class InvoiceController extends Controller
         $invoice->invoice_no = 'INV/'. $date .'/'. (rand(100,999));
         $invoice->total_amount = $request->product_price * $request->product_quantity;
         $invoice->save();
-        // if($invoice){
+        if($invoice){
             
-        //     $invoice = Invoice::orderBy('id', 'desc')->with('client')->first();
-        //     Mail::to('testing@mail')->send(new InvoiceMail($invoice));
-        // }
+            $invoice = Invoice::orderBy('id', 'desc')->with('client')->first();
+            Mail::to($invoice->client->email)->send(new InvoiceMail($invoice));
+        }
                 
         return redirect('/invoice/view');
     }
