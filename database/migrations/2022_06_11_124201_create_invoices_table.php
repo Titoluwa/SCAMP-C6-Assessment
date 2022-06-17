@@ -18,11 +18,10 @@ class CreateInvoicesTable extends Migration
             $table->foreignId('client_id')->constrained('clients'); //connected to client table
             $table->string('invoice_no');
             $table->date('due_date');
-            $table->date('delivery_date');
             $table->string('product_name');
             $table->integer('product_price');
             $table->integer('product_quantity');
-            $table->integer('total_amount');
+            $table->decimal('total_amount', 18, 2);
             $table->integer('status')->default(1);
             $table->timestamps();
         });

@@ -9,7 +9,8 @@
                 <div class="card-header clearfix">
                     <b class="float-left">{{ __('All Invoices') }}</b>
                     <div class="float-right">
-                        <a href="/home" class="btn btn-sm btn-secondary">Back</a>
+                        <a href="/invoice" class="btn btn-sm btn-primary px-3">Add Invoice</a>
+                        <a href="/home" class="btn btn-sm btn-secondary px-3">Back</a>
                     </div>
                 </div>
 
@@ -19,7 +20,7 @@
                             <thead>
                                 <tr>
                                     <th>Invoice Number</th>
-                                    <th>Client Name</th>
+                                    <th>Client</th>
                                     <th>Product</th>
                                     <th>Total Amount</th>
                                     <th>Due Date</th>
@@ -37,7 +38,10 @@
                                         <td>{{$invoice->due_date}}</td>
                                         @if($invoice->status == 1)
                                             <td class="text-danger">Pending</td>
-                                            <td><a href="" class="btn btn-sm btn-primary">Send Invoice</a></td>
+                                            <td>
+                                                <a href="/payment" class="btn btn-sm btn-warning">Make Payment</a>
+                                                <a href="/send_invoice" class="btn btn-sm btn-primary">Send Invoice</a>
+                                            </td>
                                         @else
                                             <td class="text-success">Paid</td>
                                             <td><a href="" class="btn btn-sm btn-success">View Payment</a></td>

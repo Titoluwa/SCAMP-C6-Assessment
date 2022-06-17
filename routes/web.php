@@ -28,3 +28,5 @@ Route::post('/client', 'ClientController@create');
 Route::get('/invoice', 'InvoiceController@index')->name('invoice');
 Route::post('/invoice', 'InvoiceController@create');
 Route::get('/invoice/view', 'InvoiceController@show')->name('view_invoice');
+
+Route::get('/payment','PaymentController@index');

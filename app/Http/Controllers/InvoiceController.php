@@ -6,7 +6,8 @@ use App\Client;
 use App\Invoice;
 use App\Mail\InvoiceMail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+// use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
@@ -22,18 +23,18 @@ class InvoiceController extends Controller
     }
     public function create(Request $request)
     {
-
+        $date = Carbon::now()->format('Y/m/d');
         $invoice = Invoice::create($request->all());
-        $invoice->invoice_no = 'inv/' . (rand(100,999));
+        $invoice->invoice_no = 'INV/'. $date .'/'. (rand(100,999));
         $invoice->total_amount = $request->product_price * $request->product_quantity;
         $invoice->save();
-        if($invoice){
+        // if($invoice){
             
-            $invoice = Invoice::orderBy('id', 'desc')->with('client')->first();
-            Mail::to('testing@mail')->send(new InvoiceMail($invoice));
-        }
+        //     $invoice = Invoice::orderBy('id', 'desc')->with('client')->first();
+        //     Mail::to('testing@mail')->send(new InvoiceMail($invoice));
+        // }
                 
-        return redirect('home');
+        return redirect('/invoice/view');
     }
     public function show()
     {

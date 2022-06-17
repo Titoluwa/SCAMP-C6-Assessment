@@ -18,7 +18,8 @@
                         @csrf
                         
                         <div class="form-group row">
-                            <label for="client_id" class="col-md-2 col-form-label">{{ __('Client Name') }}</label>
+                            <div class="col-md-3"></div>
+                            <label for="client_id" class="col-md-2 col-form-label">{{ __('Client') }}</label>
 
                             <div class="col-md-4">
                                 <select class="form-control  @error('client_id') is-invalid @enderror" name="client_id" id="client_id">
@@ -42,6 +43,7 @@
 
 
                         <div class="form-group row">
+                            <div class="col-md-3"></div>
                             <label for="product_name" class="col-md-2 col-form-label">{{ __('Product') }}</label>
 
                             <div class="col-md-4">
@@ -54,6 +56,10 @@
                                 @enderror
                             </div>
 
+                            
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-3"></div>
                             <label for="product_price" class="col-md-2 col-form-label">{{ __('Unit Price') }}</label>
 
                             <div class="col-md-4">
@@ -68,6 +74,8 @@
                         </div>
 
                         <div class="form-group row">
+                            <div class="col-md-3"></div>
+                            
                             <label for="product_quantity" class="col-md-2 col-form-label">{{ __('Quantity') }}</label>
 
                             <div class="col-md-4">
@@ -80,24 +88,15 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="form-group row">
+                            <div class="col-md-3"></div>
                             <label for="due_date" class="col-md-2 col-form-label">{{ __('Due Date') }}</label>
 
                             <div class="col-md-4">
                                 <input id="due_date" type="date" class="form-control @error('due_date') is-invalid @enderror" name="due_date" value="{{ old('due_date') }}" required autocomplete="due_date">
 
                                 @error('due_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <label for="delivery_date" class="col-md-2 col-form-label">{{ __('Delivery Date') }}</label>
-
-                            <div class="col-md-4">
-                                <input id="delivery_date" type="date" class="form-control @error('delivery_date') is-invalid @enderror" name="delivery_date" value="{{ old('delivery_date') }}" required autocomplete="delivery_date">
-
-                                @error('delivery_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

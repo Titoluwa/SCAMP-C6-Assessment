@@ -19,6 +19,7 @@
                         <a href="/client" class="btn btn-outline-success">Add Client</a> 
                         <a href="/invoice" class="btn btn-outline-primary">Create New Invoice</a>
                         <a href="/invoice/view" class="btn btn-outline-danger">View All Invoice</a>
+                        <a href="/payment" class="btn btn-outline-warning">View All Payments</a>
                     </div>
                     <div class="p-3">
                         <b>All Clients</b>
